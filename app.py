@@ -66,5 +66,5 @@ def libros():
         fecha_hora = registro["Fecha_Hora"]
 
         registro["Fecha_Hora"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
-        registro["fechaPublicacion"]      = fecha_hora.strftime("%d/%m/%Y")
+        registro["Fecha"]      = fecha_hora.strftime("%d/%m/%Y")
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
