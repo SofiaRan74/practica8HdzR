@@ -1,20 +1,28 @@
-<table class="table table-sm">
-    <thead class="table-active">
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Existencias</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for producto in productos %}
-        <tr>
-            <td>{{ producto.Id_Producto }}</td>
-            <td>{{ producto.Nombre_Producto }}</td>
-            <td>{{ producto.Precio }}</td>
-            <td>{{ producto.Existencias }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<body>   
+    <table class="table table-sm">
+        <thead class="table-active">
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Publicación</th>
+                <th>Portada</th>
+                <th>Reseña</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>{{ libro.idLibro }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.autor }}</td>
+                <td>{{ libro.fechaPublicacion }}</td>
+                <td><img ng-src="data:image/png;base64,{{ libro.portada }}" width="50"></td>
+                <td>{{ libro.resena }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+</body>
