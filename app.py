@@ -56,7 +56,7 @@ def libros():
            titulo,
            autor,
            fechaPublicacion,
-           portada,
+           TO_BASE64(portada) AS portada,
            resena
 
     FROM libros
