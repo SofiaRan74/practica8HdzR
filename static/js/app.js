@@ -23,10 +23,6 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: "/libros",
         controller: "librosCtrl"
     })
-    .when("/calificaciones", {
-        templateUrl: "/calificaciones",
-        controller: "calificacionesCtrl"
-    })
     .otherwise({
         redirectTo: "/"
     })
@@ -76,8 +72,6 @@ app.controller("appCtrl", function ($scope, $http) {
 })
 app.controller("librosCtrl", function ($scope, $http) {
     // alert("Hola, soy el controlador productos")
-})
-app.controller("calificacionesCtrl", function ($scope, $http) {
 })
 
 const DateTime = luxon.DateTime
