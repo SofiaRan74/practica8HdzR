@@ -34,7 +34,8 @@
     <style>.form-control:focus {box-shadow: none !important;}; label.is-invalid {background: red; padding: 3px; margin: 3px; border-radius: 3px; font-weight: bold; width: 100%;};</style>
 
     <!-- JS: Utils/functions.js -->
-    <script>function saveEntryCursorPosition(t,o){if(!("selectionStart"in t))return;let e=[t.selectionStart,t.selectionEnd];o(e),e.length&&(t.selectionStart=e[0],t.selectionEnd=e[1])}function likeText(t,o){try{return RegExp(t,"i").test(o)}catch(e){try{return -1!=o.indexOf(t)}catch(a){return!0}}}function textboxEntryPattern(t,o){saveEntryCursorPosition(t,function(e){let a=t.value.split(""),s=0;for(let n in a)!likeText("["+o+"]",a[n])&&(a[n]="",s++);t.value=a.join(""),e[0]-=s,e[1]-=s})}function textboxEntryCase(t,o){saveEntryCursorPosition(t,function(){let e=t.value;if("u"==o)t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","characters"),e=e.toUpperCase();else if("l"==o)t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","off"),e=e.toLowerCase();else if("c"==o){t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","words");let a=e.split(" ");for(let s in a){let n=a[s].split("");if(n.length)for(let l in n){let i=n[l];if(likeText("[a-z]",i)){n[l]=i.toUpperCase();break}}a[s]=n.join("")}e=a.join(" ")}t.value=e})}function toast(t,o,e){if(o=o?1e3*o:3e3,t){if(null==document.getElementById("toast-message")){let a=$("<div />");a.addClass("p-2 rounded").attr("id","toast-message").css({background:"#000",color:"#fff",position:"fixed",bottom:"1%",left:"1%",right:"1%",textAlign:"center",zIndex:"999999"}).hide(),$("body").append(a)}$("#toast-message").html(t).fadeToggle(o,function(t){$(this).fadeToggle(o,function(t){$(this).remove(),"function"==typeof e&&e()})})}}function modal(t,o,e,a){let s=`<div class="modal fade" id="modal-message" tabindex="-1" role="dialog" aria-labelledby="modal-message-title" aria-hidden="true">
+    <script>
+        function saveEntryCursorPosition(t,o){if(!("selectionStart"in t))return;let e=[t.selectionStart,t.selectionEnd];o(e),e.length&&(t.selectionStart=e[0],t.selectionEnd=e[1])}function likeText(t,o){try{return RegExp(t,"i").test(o)}catch(e){try{return -1!=o.indexOf(t)}catch(a){return!0}}}function textboxEntryPattern(t,o){saveEntryCursorPosition(t,function(e){let a=t.value.split(""),s=0;for(let n in a)!likeText("["+o+"]",a[n])&&(a[n]="",s++);t.value=a.join(""),e[0]-=s,e[1]-=s})}function textboxEntryCase(t,o){saveEntryCursorPosition(t,function(){let e=t.value;if("u"==o)t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","characters"),e=e.toUpperCase();else if("l"==o)t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","off"),e=e.toLowerCase();else if("c"==o){t.hasAttribute("autocapitalize")||t.setAttribute("autocapitalize","words");let a=e.split(" ");for(let s in a){let n=a[s].split("");if(n.length)for(let l in n){let i=n[l];if(likeText("[a-z]",i)){n[l]=i.toUpperCase();break}}a[s]=n.join("")}e=a.join(" ")}t.value=e})}function toast(t,o,e){if(o=o?1e3*o:3e3,t){if(null==document.getElementById("toast-message")){let a=$("<div />");a.addClass("p-2 rounded").attr("id","toast-message").css({background:"#000",color:"#fff",position:"fixed",bottom:"1%",left:"1%",right:"1%",textAlign:"center",zIndex:"999999"}).hide(),$("body").append(a)}$("#toast-message").html(t).fadeToggle(o,function(t){$(this).fadeToggle(o,function(t){$(this).remove(),"function"==typeof e&&e()})})}}function modal(t,o,e,a){let s=`<div class="modal fade" id="modal-message" tabindex="-1" role="dialog" aria-labelledby="modal-message-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header ${a=a||""}">
@@ -73,12 +74,12 @@
         let bootstrapTheme=localStorage.getItem("theme");function colormode_onchange(e){}function getPreferredTheme(){return bootstrapTheme||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}function detectSystemTheme(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function filterTheme(e){return"auto"==e?detectSystemTheme():e}function setTheme(e){document.documentElement.setAttribute("data-bs-theme",filterTheme(e))}function showActiveTheme(e){$("[data-bs-theme-value]").removeClass("bg-primary text-white active"),$(`[data-bs-theme-value="${e}"]`).addClass("bg-primary text-white active")}$(document).on("click","[data-bs-theme-value]",function(e){bootstrapTheme=$(this).attr("data-bs-theme-value"),localStorage.setItem("theme",bootstrapTheme),setTheme(bootstrapTheme),showActiveTheme(bootstrapTheme),colormode_onchange(bootstrapTheme)}),document.addEventListener("DOMContentLoaded",function(e){setTheme(bootstrapTheme=getPreferredTheme()),showActiveTheme(bootstrapTheme)});
     </script>
     
-    <script src="{{ url_for("static", filename="js/app.js") }}"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
     <div class="float-end mt-1 me-3" style="font-size: 1.25rem;">
         <i class="bi bi-clock"></i>
-         {{ '{{ angularjsHora }}' }}
+         {{ angularjsHora }}
     </div>
 
     <!-- rutas, solo cambiar el nombre no el "#/" -->
@@ -87,23 +88,14 @@
             <a class="nav-link" href="#/">Inicio</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#/productos">Productos</a>
+            <a class="nav-link" href="#/calificaciones">Calificaciones</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#/alumnos">Alumnos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#/ventas">Ventas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#/reportes">Reportes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#/notificaciones">Notificaciones</a>
+            <a class="nav-link" href="#/libros">Libros</a>
         </li>
     </ul>
 
-    <div id="appContent" class="app-content container p-3 {{ '{{ slide }}' }}" ng-view></div>
+    <div id="appContent" class="app-content container p-3 {{ slide }}" ng-view></div>
 
     <div class="app-float-button bg-body" style="z-index: 2; position: fixed; bottom: 5px; left: 5px; cursor: pointer;">
         <ul class="list-group list-group-horizontal">
