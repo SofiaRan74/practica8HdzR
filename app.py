@@ -45,19 +45,21 @@ def app2():
 
     return "<h5>Hola, soy la view app</h5>";
 
-@app.route("/productos")
-def productos():
+@app.route("/libros")
+def librps():
     if not con.is_connected():
         con.reconnect()
 
     cursor = con.cursor(dictionary=True)
     sql    = """
-    SELECT Id_Producto,
-           Nombre_Producto,
-           Precio,
-           Existencias
+    SELECT IdLibro,
+           titulo,
+           autor,
+           fechaPublicacion,
+           portada,
+           resena
 
-    FROM productos
+    FROM libros
 
     LIMIT 10 OFFSET 0
     """
@@ -66,12 +68,12 @@ def productos():
     registros = cursor.fetchall()
 
     # Si manejas fechas y horas
-    """
+    
     for registro in registros:
         fecha_hora = registro["Fecha_Hora"]
 
         registro["Fecha_Hora"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
-        registro["Fecha"]      = fecha_hora.strftime("%d/%m/%Y")
+        registro["fechaPublicacion"]      = fecha_hora.strftime("%d/%m/%Y")
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
     """
 
