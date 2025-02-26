@@ -26,6 +26,7 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/calificaciones", {
         templateUrl: "/calificaciones",
         controller: "calificacionesCtrl"
+    })
     .otherwise({
         redirectTo: "/"
     })
