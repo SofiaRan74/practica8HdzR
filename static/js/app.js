@@ -23,6 +23,10 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: "/libros",
         controller: "librosCtrl"
     })
+    .when("/calificaciones", {
+        templateUrl: "/calificaciones",
+        controller: "calificacionesCtrl"
+    })
     .otherwise({
         redirectTo: "/"
     })
@@ -71,6 +75,9 @@ app.controller("appCtrl", function ($scope, $http) {
     // alert("Hola, soy el controlador app")
 })
 app.controller("librosCtrl", function ($scope, $http) {
+    // alert("Hola, soy el controlador productos")
+})
+app.controller("calificacionesCtrl", function ($scope, $http) {
     // alert("Hola, soy el controlador productos")
 })
 
