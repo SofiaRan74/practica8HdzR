@@ -72,6 +72,23 @@ def libros():
 
     return render_template("libros.html", libros=registros)
 
+@app.route("/calificacion")
+def calificaciones():
+    if not con.is_connected():
+        con.reconnect()
+
+    cursor = con.cursor(dictionary=True)
+    sql    = """
+    SELECT * FROM calificaciones INNER JOIN libros ON calificaciones.idLibro = libros.idLibro
+
+    LIMIT 10 OFFSET 0
+    """
+
+    cursor.execute(sql)
+    registros = cursor.fetchall()
+    
+    return render_template("calificaciones.html", calificaciones=registros)
+
 @app.route("/productos/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
