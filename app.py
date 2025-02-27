@@ -63,7 +63,7 @@ def clientes():
     # Si manejas fechas y horas
     
     for registro in registros:
-        fecha_hora = registro["Fecha_Hora"]
+        fecha_hora = registro["fechaPublicacion"]
 
         registro["Fecha_Hora"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
         registro["Fecha"]      = fecha_hora.strftime("%d/%m/%Y")
