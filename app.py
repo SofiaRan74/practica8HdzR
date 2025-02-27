@@ -52,14 +52,7 @@ def libros():
 
     cursor = con.cursor(dictionary=True)
     sql    = 
-    SELECT IdLibro,
-           titulo,
-           autor,
-           fechaPublicacion,
-           portada,
-           resena
-
-    FROM libros
+    SELECT * FROM libros
 
     LIMIT 10 OFFSET 0
     
