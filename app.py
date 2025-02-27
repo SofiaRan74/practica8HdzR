@@ -46,7 +46,7 @@ def app2():
     return "<h5>Hola, soy la view app</h5>";
 
 @app.route("/libros")
-def librps():
+def libros():
     if not con.is_connected():
         con.reconnect()
 
