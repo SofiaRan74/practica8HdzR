@@ -19,9 +19,9 @@ from flask_cors import CORS, cross_origin
 
 con = mysql.connector.connect(
     host="185.232.14.52",
-    database="u760464709_23005116_bd",
-    user="u760464709_23005116_usr",
-    password="z8[T&05u"
+    database="u760464709_23005336_bd",
+    user="u760464709_23005336_usr",
+    password="4hpY9Z[z"
 )
 
 app = Flask(__name__)
@@ -46,16 +46,16 @@ def app2():
     return "<h5>Hola, soy la view app</h5>"
 
 @app.route("/libros")
-def libros():
+def clientes():
     if not con.is_connected():
         con.reconnect()
 
     cursor = con.cursor(dictionary=True)
-    sql    = 
+    sql    = """
     SELECT * FROM libros
 
     LIMIT 10 OFFSET 0
-    
+    """
 
     cursor.execute(sql)
     registros = cursor.fetchall()
@@ -63,13 +63,14 @@ def libros():
     # Si manejas fechas y horas
     
     for registro in registros:
-        fecha_hora = registro["fechaPublicacion"]
+        fecha_hora = registro["Fecha_Hora"]
 
         registro["Fecha_Hora"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
         registro["Fecha"]      = fecha_hora.strftime("%d/%m/%Y")
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
-      return render_template("libros.html", libros=registros)
-"""
+    """
+
+    return render_template("clientes.html", clientes=registros)
 
 @app.route("/productos/buscar", methods=["GET"])
 def buscarProductos():
