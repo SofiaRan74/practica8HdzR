@@ -61,7 +61,7 @@ def clientes():
     registros = cursor.fetchall()
 
     # Si manejas fechas y horas
-    
+    """
     for registro in registros:
         fecha_hora = registro["fechaPublicacion"]
 
@@ -70,7 +70,7 @@ def clientes():
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
     """
 
-    return render_template("clientes.html", clientes=registros)
+    return render_template("libros.html", libros=registros)
 
 @app.route("/productos/buscar", methods=["GET"])
 def buscarProductos():
