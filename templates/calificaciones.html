@@ -1,0 +1,21 @@
+<table class="table table-sm">
+    <thead class="table-active">
+        <tr>
+            <th>Id</th>
+            <th>Libro</th>
+            <th>IP</th>
+            <th>Calificación</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ng-repeat, solo cambiar el nombre  -->
+        <tr ng-repeat="x in calificaciones">
+            <td scope="col">{{ x.idCalificacion }}</td>
+            <td scope="col">{{ x.Titulo }}</td>
+            <td scope="col">{{ x.ip }}</td>
+            <td scope="col">{{ x.calificacion }}</td>
+            <td scope="col"></td>
+        </tr>
+    </tbody>
+</table>  v
