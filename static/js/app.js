@@ -71,7 +71,7 @@ app.controller("appCtrl", function ($scope, $http) {
     // alert("Hola, soy el controlador app")
 })
 app.controller("librosCtrl", function ($scope, $http) {
-    // alert("Hola, soy el controlador productos")
+    alert("Hola, soy el controlador productos")
 })
 
 const DateTime = luxon.DateTime
