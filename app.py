@@ -72,7 +72,7 @@ def libros():
 
     return render_template("libros.html", libros=registros)
 
-@app.route("/calificacion")
+@app.route("/calificaciones")
 def calificaciones():
     if not con.is_connected():
         con.reconnect()
